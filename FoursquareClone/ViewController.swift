@@ -29,8 +29,7 @@ class ViewController: UIViewController {
                 }else {
                     
                     // Segue
-                    print("welcome")
-                    print(user?.username)
+                    self.performSegue(withIdentifier: "toPlaceVC", sender: nil)
 
                 }
             }
@@ -51,6 +50,7 @@ class ViewController: UIViewController {
                     self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error!!")
                 }else{
                     print("OK!")
+                    self.performSegue(withIdentifier: "toPlaceVC", sender: nil)
                 }
             }
         }else {
