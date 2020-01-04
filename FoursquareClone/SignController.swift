@@ -9,14 +9,13 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class SignController: UIViewController {
 
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

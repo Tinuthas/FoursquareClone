@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,8 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addButtonClicked))
         
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: #selector(logoutButtonClicked))
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -24,6 +27,19 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @objc func addButtonClicked(){
         
+    }
+    
+    @objc func logoutButtonClicked(){
+        PFUser.logOutInBackground { (error) in
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }else {
+                self.performSegue(withIdentifier: "toSignVC", sender: nil)
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
