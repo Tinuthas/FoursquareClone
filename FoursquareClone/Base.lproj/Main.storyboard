@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -101,7 +101,7 @@
                     <connections>
                         <outlet property="tableView" destination="SKS-L8-LRF" id="U0k-l2-fzB"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignVC" modalPresentationStyle="fullScreen" id="2qW-EG-FUf"/>
-                        <segue destination="PKf-sW-ko2" kind="show" id="zXy-Oe-YJI"/>
+                        <segue destination="PKf-sW-ko2" kind="show" identifier="toAddPlaceVC" id="zXy-Oe-YJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGv-l2-RBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,11 +172,42 @@
                         <outlet property="placeImageView" destination="hwM-29-JNg" id="n5U-va-lMt"/>
                         <outlet property="placeNameText" destination="X69-fz-3xP" id="a1J-0X-1Gn"/>
                         <outlet property="placeTypeText" destination="SuY-M4-ygJ" id="Dxl-JP-Muu"/>
+                        <segue destination="RVa-hK-Qhr" kind="presentation" identifier="toMapVC" id="6tt-6y-Wbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Kl-BL-g3Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2818.840579710145" y="72.991071428571431"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="4mA-q2-R6k">
+            <objects>
+                <viewController id="iSR-GZ-G0b" customClass="MapViewController" customModule="FoursquareClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W6m-3D-vam">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PFG-qb-1QT">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PFG-qb-1QT" firstAttribute="top" secondItem="Gsu-Mu-f6c" secondAttribute="top" id="Hfo-Vd-YWa"/>
+                            <constraint firstItem="Gsu-Mu-f6c" firstAttribute="bottom" secondItem="PFG-qb-1QT" secondAttribute="bottom" id="MdP-5P-l04"/>
+                            <constraint firstItem="Gsu-Mu-f6c" firstAttribute="trailing" secondItem="PFG-qb-1QT" secondAttribute="trailing" id="X16-1G-1EH"/>
+                            <constraint firstItem="PFG-qb-1QT" firstAttribute="leading" secondItem="Gsu-Mu-f6c" secondAttribute="leading" id="n5h-Mt-X58"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gsu-Mu-f6c"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GLC-Gh-Y7R"/>
+                    <connections>
+                        <outlet property="mapView" destination="PFG-qb-1QT" id="bcg-xP-vCs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GRZ-7S-BNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4471" y="73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1to-if-k0r">
@@ -196,6 +227,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfj-rk-lqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1110" y="78"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f9g-bh-PgX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RVa-hK-Qhr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="aeK-Cz-lAx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Blj-Zc-BsF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iSR-GZ-G0b" kind="relationship" relationship="rootViewController" id="RR7-NJ-3FA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcZ-bO-Z59" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3678" y="73"/>
         </scene>
     </scenes>
     <resources>
