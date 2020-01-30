@@ -16,6 +16,7 @@ class SignController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
     }
     
