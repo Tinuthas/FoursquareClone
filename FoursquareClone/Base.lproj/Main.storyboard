@@ -333,7 +333,6 @@
         <image name="select" width="285" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zXy-Oe-YJI"/>
         <segue reference="KsO-nv-TRo"/>
     </inferredMetricsTieBreakers>
 </document>
