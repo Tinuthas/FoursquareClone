@@ -84,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKS-L8-LRF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -101,8 +101,8 @@
                     <connections>
                         <outlet property="tableView" destination="SKS-L8-LRF" id="U0k-l2-fzB"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignVC" modalPresentationStyle="fullScreen" id="2qW-EG-FUf"/>
-                        <segue destination="PKf-sW-ko2" kind="presentation" identifier="toAddPlaceVC" modalPresentationStyle="fullScreen" id="zXy-Oe-YJI"/>
-                        <segue destination="CcA-9c-ged" kind="presentation" identifier="toDetailsVC" modalPresentationStyle="fullScreen" id="dY6-Uq-kcT"/>
+                        <segue destination="PKf-sW-ko2" kind="show" identifier="toAddPlaceVC" id="zXy-Oe-YJI"/>
+                        <segue destination="CcA-9c-ged" kind="show" identifier="toDetailsVC" id="dY6-Uq-kcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGv-l2-RBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,24 +118,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="place name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X69-fz-3xP">
-                                <rect key="frame" x="30" y="74" width="354" height="34"/>
+                                <rect key="frame" x="30" y="118" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="hwM-29-JNg">
-                                <rect key="frame" x="30" y="266" width="354" height="395"/>
+                                <rect key="frame" x="30" y="310" width="354" height="395"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="354" id="RIS-eC-92f"/>
                                     <constraint firstAttribute="height" constant="395" id="mkX-Kg-rxA"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="place type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuY-M4-ygJ">
-                                <rect key="frame" x="30" y="138" width="354" height="34"/>
+                                <rect key="frame" x="30" y="182" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="place atmosphere" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8A-Un-XfW">
-                                <rect key="frame" x="30" y="202" width="354" height="34"/>
+                                <rect key="frame" x="30" y="246" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -204,7 +204,7 @@
                     <navigationItem key="navigationItem" id="GLC-Gh-Y7R"/>
                     <connections>
                         <outlet property="mapView" destination="PFG-qb-1QT" id="bcg-xP-vCs"/>
-                        <segue destination="5a1-bV-kX9" kind="presentation" identifier="fromMapVCPlacesVC" modalPresentationStyle="fullScreen" id="KsO-nv-TRo"/>
+                        <segue destination="j7r-wC-g3U" kind="presentation" identifier="fromMapVCPlacesVC" modalPresentationStyle="fullScreen" id="gVl-6w-EHj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRZ-7S-BNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,13 +258,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nWW-Jd-eRc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="218"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="218"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="218" id="pvo-Y8-3Xb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlaceNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K21-hl-Jho">
-                                <rect key="frame" x="20" y="285" width="374" height="44"/>
+                                <rect key="frame" x="20" y="329" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="zc1-qf-quc"/>
                                 </constraints>
@@ -273,7 +273,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlaceTypeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76E-AE-Lwf">
-                                <rect key="frame" x="20" y="337" width="374" height="44"/>
+                                <rect key="frame" x="20" y="381" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="e8S-dS-emw"/>
                                 </constraints>
@@ -282,7 +282,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlaceAtmosphereLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZe-q0-4i3">
-                                <rect key="frame" x="20" y="389" width="374" height="44"/>
+                                <rect key="frame" x="20" y="433" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="oKP-En-fgu"/>
                                 </constraints>
@@ -291,7 +291,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="23L-6h-D6n">
-                                <rect key="frame" x="0.0" y="458" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="502" width="414" height="394"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -333,7 +333,6 @@
         <image name="select" width="285" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zXy-Oe-YJI"/>
-        <segue reference="KsO-nv-TRo"/>
+        <segue reference="gVl-6w-EHj"/>
     </inferredMetricsTieBreakers>
 </document>
