@@ -204,7 +204,7 @@
                     <navigationItem key="navigationItem" id="GLC-Gh-Y7R"/>
                     <connections>
                         <outlet property="mapView" destination="PFG-qb-1QT" id="bcg-xP-vCs"/>
-                        <segue destination="5a1-bV-kX9" kind="presentation" identifier="fromMapVCPlacesVC" modalPresentationStyle="fullScreen" id="KsO-nv-TRo"/>
+                        <segue destination="j7r-wC-g3U" kind="presentation" identifier="fromMapVCPlacesVC" modalPresentationStyle="fullScreen" id="gVl-6w-EHj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRZ-7S-BNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -333,6 +333,6 @@
         <image name="select" width="285" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="USm-2U-aQK"/>
+        <segue reference="gVl-6w-EHj"/>
     </inferredMetricsTieBreakers>
 </document>
