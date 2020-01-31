@@ -13,6 +13,7 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var placesNameArray = [String]()
     var placesIdArray = [String]()
+    var selectedPlaceId = ""
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -82,6 +83,18 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         alert.addAction(okButton)
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailsVC"{
+            let destinationVC = segue.destination as! DetailsViewController
+            destinationVC.chosenPlaceId = selectedPlaceId
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlaceId = placesIdArray[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
 
     
