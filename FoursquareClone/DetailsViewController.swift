@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Parse
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailsNameLabel: UILabel!
@@ -26,6 +26,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         getDataFromParse()
+        mapView.delegate = self
         
     }
     
@@ -84,6 +85,42 @@ class DetailsViewController: UIViewController {
                     annotation.subtitle = self.detailsTypeLabel.text
                     self.mapView.addAnnotation(annotation)
                     
+                }
+            }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            let button = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        }else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if self.chosenLatitude != 0.0 && self.chosenLongitude != 0.0{
+            let requestLocation = CLLocation(latitude: self.chosenLatitude, longitude: self.chosenLongitude)
+            CLGeocoder().reverseGeocodeLocation(requestLocation){(placemarks, error) in
+                if let placeMark = placemarks {
+                    if placeMark.count > 0 {
+                        let mkPlaceMark = MKPlacemark(placemark: placeMark[0])
+                        let mapItem = MKMapItem(placemark: mkPlaceMark)
+                        mapItem.name = self.detailsTypeLabel.text
+
+                        let launcherOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                        mapItem.openInMaps(launchOptions: launcherOptions)
+                    }
                 }
             }
         }
